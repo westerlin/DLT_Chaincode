@@ -1,26 +1,10 @@
 /*
-Copyright IBM Corp. 2016 All Rights Reserved.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-		 http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+Based on IBMs own Hyperledger Fabric Example02
+March 2018
 */
 
 package main
 
-//WARNING - this chaincode's ID is hard-coded in chaincode_example04 to illustrate one way of
-//calling chaincode from a chaincode. If this example is modified, chaincode_example04.go has
-//to be modified as well with the new ID of chaincode_example02.
-//chaincode_example05 show's how chaincode ID can be passed in as a parameter instead of
-//hard-coding.
 
 import (
 	"fmt"
@@ -45,35 +29,6 @@ type LOM struct {
 }
 
 func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface) pb.Response {
-	/*
-	fmt.Println("ex02 Init")
-	_, args := stub.GetFunctionAndParameters()
-	var A string    // Entities
-	var Aval,i int
-	var err error // Asset holdings
-
-	if len(args) != 4 {
-		return shim.Error("Incorrect number of arguments. Expecting 4")
-	}
-
-	for i=0; i<len(args); i+=2 {
-
-		// ==== Get account id ====
-		A = args[i]
-
-		// ==== Get account balance ====
-		Aval, err = strconv.Atoi(args[i+1])
-		if err != nil {
-			return shim.Error("Expecting integer value for asset holding")
-		}
-
-		err = createAccount(stub,A,"NA",Aval,-99999)
-		if err != nil {
-			return shim.Error("Error creating account")
-		}
-
-	}
-	*/
 	return shim.Success(nil)
 }
 
@@ -326,7 +281,7 @@ func createAccount(stub shim.ChaincodeStubInterface, accountID string, owner str
 			return errors.New("Account already exists:" + accountID)
 		}
 
-		// ==== Create marble object and marshal to JSON ====
+		// ==== Create Account object and marshal to JSON ====
 		objectType := "LOM"
 		lom := &LOM{objectType, accountID, owner, balance, limit}
 		lomJSONasBytes, err := json.Marshal(lom)
@@ -350,7 +305,7 @@ func (t *SimpleChaincode) query(stub shim.ChaincodeStubInterface, args []string)
 	var jsonResp string
 
 	if len(args) != 1 {
-		return shim.Error("Incorrect number of arguments. Expecting name of the marble to query")
+		return shim.Error("Incorrect number of arguments. Expecting ID of the Account to query")
 	}
 
 	name = args[0]
@@ -359,7 +314,7 @@ func (t *SimpleChaincode) query(stub shim.ChaincodeStubInterface, args []string)
 		jsonResp = "{\"Error\":\"Failed to get state for " + name + "\"}"
 		return shim.Error(jsonResp)
 	} else if valAsbytes == nil {
-		jsonResp = "{\"Error\":\"Marble does not exist: " + name + "\"}"
+		jsonResp = "{\"Error\":\"Account does not exist: " + name + "\"}"
 		return shim.Error(jsonResp)
 	}
 
