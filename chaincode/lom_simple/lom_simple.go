@@ -12,6 +12,7 @@ import (
 	"strconv"
 	"encoding/json"
 	"errors"
+	"time"
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 	pb "github.com/hyperledger/fabric/protos/peer"
 )
@@ -36,23 +37,71 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
 	fmt.Println("ex02 Invoke")
 	function, args := stub.GetFunctionAndParameters()
 	if function == "transfer" {
-		// Make payment of X units from A to B
+		// Make tranfer between two accounts
 		return t.transfer(stub, args)
 	} else if function == "delete" {
 		// Deletes an entity from its state
 		return t.delete(stub, args)
-	} else if function == "account" {
-		// Deletes an entity from its state
-		return t.account(stub, args)
+	} else if function == "add" {
+		// creates an account
+		return t.createAccount(stub, args)
+	} else if function == "history" {
+		// list all states for one account
+		return t.getHistory(stub, args)
 	} else if function == "list" {
-		// Deletes an entity from its state
+		// list all accounts
 		return t.list(stub, args)
 	} else if function == "query" {
 		// the old "Query" is now implemtned in invoke
 		return t.query(stub, args)
 	}
 
-	return shim.Error("Invalid invoke function name. Expecting \"invoke\" \"delete\" \"query\"")
+	return shim.Error("Invalid invoke function name. Expecting \"transfer\" \"add\" \"delete\" \"query\"  \"list\" \"history\"")
+}
+
+func (t *SimpleChaincode) getHistory(stub shim.ChaincodeStubInterface, args []string) pb.Response {
+	var normaltime time.Time
+
+
+	if len(args) != 1 {
+		return shim.Error("Require one argument")
+	}
+		
+	output := "\n {\"history\": ["
+
+	history, err := stub.GetHistoryForKey(args[0])
+
+	if err != nil {
+		return shim.Error(err.Error())
+	}
+
+	stateHistory,err1 := history.Next()
+
+	if err1 != nil {
+		return shim.Error(err.Error())
+	}
+
+	normaltime = time.Unix(stateHistory.Timestamp.Seconds, int64(stateHistory.Timestamp.Nanos)).UTC()
+	//normaltime, _ := Timestamp(stateHistory.Timestamp)
+	output += "\n{\"value\":" + string(stateHistory.Value) + ",\"timestamp\":" + normaltime.Format("2006-01-02 15:04:05")
+
+	for history.HasNext() {
+
+		output += "},"
+
+		stateHistory, err1 = history.Next()
+
+		if err1 != nil {
+			return shim.Error(err.Error())
+		}
+
+		normaltime = time.Unix(stateHistory.Timestamp.Seconds, int64(stateHistory.Timestamp.Nanos)).UTC()
+		//normaltime, _ = Timestamp(stateHistory.Timestamp)
+		output += "\n{\"value\":" + string(stateHistory.Value) + ",\"timestamp\":" + normaltime.Format("2006-01-02 15:04:05")
+	}
+	output += "}\n]}"
+	return shim.Success([]byte(output))
+
 }
 
 func getAccount (stub shim.ChaincodeStubInterface, accountID string) (LOM, error) {
@@ -125,7 +174,7 @@ func (t *SimpleChaincode) transfer(stub shim.ChaincodeStubInterface, args []stri
 	return shim.Success([]byte("Transaction was completed OK !"))
 }
 
-func (t *SimpleChaincode) account(stub shim.ChaincodeStubInterface, args []string) pb.Response {
+func (t *SimpleChaincode) createAccount(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 	fmt.Println("Creating new Account")
 	//_, args := stub.GetFunctionAndParameters()
 	var accountID string    // Entities

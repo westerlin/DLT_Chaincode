@@ -2,7 +2,7 @@
 
 This chaincode for Hyperledger Fabric 1.01 written in GoLang is a first rough rewrite of IBM's example02 in the hyperledger Fabric samples. In this sample two accounts are created and via `invoke` and `query` transfers and postings of the accounts can be executed. In this version the user can create several accounts and list them.
 
-In this variant I have added the feature of creating accounts via `account` and accounts can be listed by issueing a `list` command to the peer. Moreover I have added a small batch script `update` for updating the chaincode so DLT network does not have to be restarted for each try-out of new functionality in the chaincode. Also I have changed the internal name of the `invoke` to `transfer`which I think better reflects what is happening.
+In this variant I have added the feature of creating accounts via `account` and accounts can be listed by issuing a `list` command to the peer. Moreover I have added a small batch script `update` for updating the chaincode so DLT network does not have to be restarted for each try-out of new functionality in the chaincode. Also I have changed the internal name of the `invoke` to `transfer`which I think better reflects what is happening.
 
 The files are organised in three folders
 
