@@ -15,7 +15,7 @@ In the Chaincode I have added a simple Struct reflecting a simple account with a
 One extension could be to ensure that only users who have created and account - can send money from the account. Also there could be limits to how many tokens will be on an account when created. 
 
 #### Observation on Hyperledger and couchDB
-When I run first-network with `-s flag` couchDB the internal DB is based on couchDB. With couchDB the user can view current world state (of the accounts). However, the user can also change data - that is world state - in couchDB. I believe this is somewhat of a flaw - as this is done outside of the chaincode - outside of the smartcontract  - and thus outside of the common agreement which everybody follows. 
+When I run first-network with the option `-s couchDB` the internal DB is based on couchDB. With couchDB the user can view current world state (of the accounts). However, the user can also change data - that is world state - in couchDB. I believe this is somewhat of a flaw - as this is done outside of the chaincode - outside of the smartcontract  - and thus outside of the common agreement which everybody follows. 
 
 I would suspect that the integrity of the blocks would somehow hinder this - but for reasons I do not understand Hyperledger Fabric allow changes directly to world state via couchDB. Hyperledger must somehow produce blocks underneath. I have not been able to verify this, as I have not yet added and Fabric Blockchain Explorer to the project. I have checked if invokes/changes to the blockchain via the smartcontract would override the couchDB changes if run after - but that is not the case. One can simply change world state without a smartcontract.
 
