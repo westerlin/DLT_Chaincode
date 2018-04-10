@@ -1,0 +1,1226 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"get",
+				"getHistory"
+			],
+			[
+				"query",
+				"queryResults"
+			],
+			[
+				"quer",
+				"queryResults"
+			],
+			[
+				"qu",
+				"queryResults"
+			],
+			[
+				"acc",
+				"accountID"
+			],
+			[
+				"acco",
+				"accountSender"
+			],
+			[
+				"transfer",
+				"transferValue"
+			],
+			[
+				"tra",
+				"transferValue"
+			],
+			[
+				"ac",
+				"accountSender"
+			],
+			[
+				"crate",
+				"createAccount"
+			],
+			[
+				"Chain",
+				"ChaincodeStubInterface"
+			],
+			[
+				"lom",
+				"lomJSONasBytes"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "byfn.sh",
+			"settings":
+			{
+				"buffer_size": 14916,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "repos/scripts/script.sh",
+			"settings":
+			{
+				"buffer_size": 8540,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "repos/workdir/policy.sh",
+			"settings":
+			{
+				"buffer_size": 461,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "repos/workdir/account.sh",
+			"settings":
+			{
+				"buffer_size": 394,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "repos/workdir/add.sh",
+			"settings":
+			{
+				"buffer_size": 573,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "repos/workdir/instantiate.sh",
+			"settings":
+			{
+				"buffer_size": 3712,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "repos/workdir/setpeer.sh",
+			"settings":
+			{
+				"buffer_size": 1227,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "docker-compose-cli.yaml",
+			"settings":
+			{
+				"buffer_size": 3170,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "crypto-config.yaml",
+			"settings":
+			{
+				"buffer_size": 3906,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "repos/workdir/invoke.sh",
+			"settings":
+			{
+				"buffer_size": 481,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "repos/workdir/init.sh",
+			"settings":
+			{
+				"buffer_size": 3176,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "repos/workdir/delete.sh",
+			"settings":
+			{
+				"buffer_size": 172,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "repos/workdir/logging.sh",
+			"settings":
+			{
+				"buffer_size": 229,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 5914,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "repos/workdir/update.sh",
+			"settings":
+			{
+				"buffer_size": 3699,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "repos/workdir/history.sh",
+			"settings":
+			{
+				"buffer_size": 377,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "repos/workdir/list.sh",
+			"settings":
+			{
+				"buffer_size": 452,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "repos/workdir/query.sh",
+			"settings":
+			{
+				"buffer_size": 558,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "repos/workdir/transfer.sh",
+			"settings":
+			{
+				"buffer_size": 489,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "configtx.yaml",
+			"settings":
+			{
+				"buffer_size": 5013,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "# Copyright IBM Corp. All Rights Reserved.\n#\n# SPDX-License-Identifier: Apache-2.0\n#\n\nversion: '2'\n\nnetworks:\n  byfn:\nservices:\n  ca0:\n    image: hyperledger/fabric-ca\n    environment:\n      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server\n      - FABRIC_CA_SERVER_CA_NAME=ca-org1\n      - FABRIC_CA_SERVER_TLS_ENABLED=true\n      - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem\n      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/28f22528d398e231ea403ff1b7fe3eeae2099dc29737ff69357c09b1a077cda4_sk\n    ports:\n      - \"7054:7054\"\n    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/28f22528d398e231ea403ff1b7fe3eeae2099dc29737ff69357c09b1a077cda4_sk -b admin:adminpw -d'\n    volumes:\n      - ./crypto-config/peerOrganizations/org1.example.com/ca/:/etc/hyperledger/fabric-ca-server-config\n    container_name: ca_peerOrg1\n    networks:\n      - byfn\n\n  ca1:\n    image: hyperledger/fabric-ca\n    environment:\n      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server\n      - FABRIC_CA_SERVER_CA_NAME=ca-org2\n      - FABRIC_CA_SERVER_TLS_ENABLED=true\n      - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org2.example.com-cert.pem\n      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/abaee8cf45cd69e77c49edd948cb2dba39ab1988146e20be7f9d4d46f616c167_sk\n    ports:\n      - \"8054:7054\"\n    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org2.example.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/abaee8cf45cd69e77c49edd948cb2dba39ab1988146e20be7f9d4d46f616c167_sk -b admin:adminpw -d'\n    volumes:\n      - ./crypto-config/peerOrganizations/org2.example.com/ca/:/etc/hyperledger/fabric-ca-server-config\n    container_name: ca_peerOrg2\n    networks:\n      - byfn\n\n  orderer.example.com:\n    extends:\n      file:   base/docker-compose-base.yaml\n      service: orderer.example.com\n    container_name: orderer.example.com\n    networks:\n      - byfn\n\n  peer0.org1.example.com:\n    container_name: peer0.org1.example.com\n    extends:\n      file:  base/docker-compose-base.yaml\n      service: peer0.org1.example.com\n    networks:\n      - byfn\n\n  peer1.org1.example.com:\n    container_name: peer1.org1.example.com\n    extends:\n      file:  base/docker-compose-base.yaml\n      service: peer1.org1.example.com\n    networks:\n      - byfn\n\n  peer0.org2.example.com:\n    container_name: peer0.org2.example.com\n    extends:\n      file:  base/docker-compose-base.yaml\n      service: peer0.org2.example.com\n    networks:\n      - byfn\n\n  peer1.org2.example.com:\n    container_name: peer1.org2.example.com\n    extends:\n      file:  base/docker-compose-base.yaml\n      service: peer1.org2.example.com\n    networks:\n      - byfn\n",
+			"file": "docker-compose-e2e.yaml",
+			"file_size": 2932,
+			"file_write_time": 131676958840000000,
+			"settings":
+			{
+				"buffer_size": 2932,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "base/peer-base.yaml",
+			"settings":
+			{
+				"buffer_size": 1048,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "base/docker-compose-base.yaml",
+			"settings":
+			{
+				"buffer_size": 5094,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "repos/chaincode/lom_simple/lom_simple.go",
+			"settings":
+			{
+				"buffer_size": 12811,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "pre",
+		"selected_items":
+		[
+			[
+				"pre",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"insTALL",
+				"Package Control: Install Package"
+			],
+			[
+				"preview",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 412.0
+	},
+	"console":
+	{
+		"height": 130.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/first-network",
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/first-network/base",
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/first-network/base/crypto-config",
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/first-network/base/repos",
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/first-network/base/repos/scripts",
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/first-network/base/repos/workdir",
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/first-network/channel-artifacts",
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/first-network/repos",
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/first-network/repos/workdir"
+	],
+	"file_history":
+	[
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/sdk/config.json",
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/first-network/repos/README.md",
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/first-network/repos/chaincode/lom_simple/lom_simple.go",
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/first-network/repos/scripts/init.sh",
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/first-network/peercmds.sh",
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/chaincode/chaincode_example02/chaincode_example02.go",
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/chaincode/marbles02/marbles_chaincode.go",
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/first-network/repos/scripts/script.sh",
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/first-network/repos/workdir/init.sh",
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/first-network/repos/workdir/update.sh",
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/first-network/repos/workdir/invoke.sh",
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/first-network/repos/workdir/transfer.sh",
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/first-network/repos/workdir/account.sh",
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/first-network/repos/workdir/list.sh",
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/first-network/repos/workdir/query.sh",
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/first-network/docker-compose-couch.yaml",
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/first-network/README.md",
+		"/Users/rasmuswesterlin/Library/Application Support/Sublime Text 3/Packages/User/Main.sublime-menu",
+		"/Users/rasmuswesterlin/Dropbox/Development/hyperledger/fabric-samples/chaincode/chaincode_example02/chaincode_example02_test.go",
+		"/Users/rasmuswesterlin/.sublimeNotes",
+		"/Users/rasmuswesterlin/.sublime_notes",
+		"/Users/rasmuswesterlin/Library/Application Support/Sublime Text 3/Packages/User/sublimenotes.py",
+		"/Users/rasmuswesterlin/Library/Application Support/Sublime Text 3/Packages/sublimenotes.py",
+		"/Users/rasmuswesterlin/Dropbox/Development/sublime/plugin for sublime.py",
+		"/Users/rasmuswesterlin/Dropbox/Development/python/rpg/rpg.py",
+		"/Users/rasmuswesterlin/Dropbox/Development/web/basics/start.sh",
+		"/Users/rasmuswesterlin/Library/Application Support/Sublime Text 3/Packages/Package Control/Package Control.sublime-settings",
+		"/Users/rasmuswesterlin/Dropbox/Development/python/rpg/.ropeproject/config.py",
+		"/usr/local/bin/menu.sh"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"e2e",
+			"crypto-config",
+			"OR ",
+			"cryptogen",
+			", _",
+			",_",
+			"marble",
+			"marple",
+			"example",
+			"version",
+			"list",
+			"github.com/hyperledger/fabric/examples/chaincode/go/chaincode_example02",
+			"COUNTER",
+			"DELAY",
+			"COMPOSE_FILE",
+			"generateChannelArtifacts",
+			"chaincode",
+			"instantiate"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 14,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "byfn.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 14916,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4855,
+								4855
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1777.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "repos/scripts/script.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8540,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1045,
+								1051
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 4.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 18,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "repos/workdir/policy.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 461,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								293,
+								293
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "repos/workdir/account.sh",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 394,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "repos/workdir/add.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 573,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								523,
+								523
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "repos/workdir/instantiate.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3712,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3712,
+								3712
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1050.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 19,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "repos/workdir/setpeer.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1227,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								441,
+								458
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 21,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "docker-compose-cli.yaml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3170,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2875,
+								2875
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 608.0,
+						"translation.y": 841.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "crypto-config.yaml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3906,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3844,
+								3831
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 16,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "repos/workdir/invoke.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 481,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								385
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 20,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "repos/workdir/init.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3176,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1844,
+								1844
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 30.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "repos/workdir/delete.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 172,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13,
+								13
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "repos/workdir/logging.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 229,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								107,
+								158
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5914,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4585,
+								4585
+							]
+						],
+						"settings":
+						{
+							"parser": "markdown",
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"target": "browser"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1303.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "repos/workdir/update.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3699,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								497,
+								497
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 796.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "repos/workdir/history.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 377,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								342,
+								342
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax"
+						},
+						"translation.x": 255.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "repos/workdir/list.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 452,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								414,
+								414
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 23,
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "repos/workdir/query.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 558,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								120,
+								36
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "repos/workdir/transfer.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 489,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								343,
+								343
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax"
+						},
+						"translation.x": 598.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 17,
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "configtx.yaml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5013,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2973,
+								2973
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 20,
+					"file": "docker-compose-e2e.yaml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2932,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 21,
+					"file": "base/peer-base.yaml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1048,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								785,
+								785
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 22,
+					"file": "base/docker-compose-base.yaml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5094,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								588,
+								588
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1429.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 23,
+					"file": "repos/chaincode/lom_simple/lom_simple.go",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12811,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Go/Go.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2362.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 22,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 102.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "littlenetwork.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 354.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

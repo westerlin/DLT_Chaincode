@@ -119,10 +119,10 @@ function networkUp () {
   fi
   if [ $? -ne 0 ]; then
     echo "ERROR !!!! Unable to start network"
-    docker logs -f cli
+#    docker logs -f cli
     exit 1
   fi
-  docker logs -f cli
+#  docker logs -f cli
 }
 
 # Tear down running network

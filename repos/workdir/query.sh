@@ -2,7 +2,7 @@
 
 #CHANNEL_NAME=minidlt
 
-peer chaincode query -C $CHANNEL_NAME -n mycc -c '{"Args":["query","'$1'"]}'
+peer chaincode query -C $CHANNEL_NAME -n $CHAINCODEID -c '{"Args":["query","'$1'"]}'
 #peer chaincode delete -C $CHANNEL_NAME -n mycc -c '{"Args":["delete","'$1'"]}'
 
 #ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem

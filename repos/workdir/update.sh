@@ -1,7 +1,6 @@
 #!/bin/bash
 ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
 CHANNEL_NAME=minidlt
-VERSION=$1
 
 # verify the result of the end-to-end test
 verifyResult () {
@@ -43,7 +42,7 @@ setGlobals () {
 installChaincode () {
 	PEER=$1
 	setGlobals $PEER
-	peer chaincode install -n mycc -v $VERSION -p github.com/hyperledger/fabric/examples/chaincode/go/lom_simple >&log.txt
+	peer chaincode install -n $CHAINCODEID -v $VERSION -p github.com/hyperledger/fabric/examples/chaincode/go/$CHAINCODENAME >&log.txt
 	res=$?
 	cat log.txt
         verifyResult $res "Chaincode installation on remote peer PEER$PEER has Failed"
@@ -57,9 +56,9 @@ instantiateChaincode () {
 	# while 'peer chaincode' command can get the orderer endpoint from the peer (if join was successful),
 	# lets supply it directly as we know it using the "-o" option
 	if [ -z "$CORE_PEER_TLS_ENABLED" -o "$CORE_PEER_TLS_ENABLED" = "false" ]; then
-		peer chaincode upgrade -o orderer.example.com:7050 -C $CHANNEL_NAME -n mycc -v $VERSION -c '{"Args":["init","a","100","b","200"]}' -P "OR	('Org1MSP.member','Org2MSP.member')" >&log.txt
+		peer chaincode upgrade -o orderer.example.com:7050 -C $CHANNEL_NAME -n $CHAINCODEID -v $VERSION -c '{"Args":["init","a","100","b","200"]}' -P "$POLICY" >&log.txt
 	else
-		peer chaincode upgrade -o orderer.example.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n mycc -v $VERSION -c '{"Args":["init","a","100","b","200"]}' -P "OR	('Org1MSP.member','Org2MSP.member')" >&log.txt
+		peer chaincode upgrade -o orderer.example.com:7050 --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n $CHAINCODEID -v $VERSION -c '{"Args":["init","a","100","b","200"]}' -P "$POLICY" >&log.txt
 	fi
 	res=$?
 	cat log.txt
@@ -69,17 +68,31 @@ instantiateChaincode () {
 }
 
 
-## Install chaincode on Peer0/Org1 and Peer2/Org2
-echo "Installing chaincode on org1/peer0..."
-installChaincode 0
-echo "Install chaincode on org2/peer2..."
-installChaincode 2
+if [ $# -lt 2 ] ; then
+	echo "You will need three arguments!"
+	echo " <version> <chaincodeID> <chaincode path*>"
+	echo
+	echo "Example: update 1.1 lomcode lom_simple"
+	echo 
+	echo "* only the last directory"
+else	
+ VERSION=$1
+ CHAINCODEID=$2
+ CHAINCODENAME=$3
+ ## Install chaincode on Peer0/Org1 and Peer2/Org2
+ echo "Installing chaincode on org1/peer0..."
+ installChaincode 0
+ echo "Installing chaincode on org1/peer1..."
+ installChaincode 1
 
-#Instantiate chaincode on Peer2/Org2
-echo "Instantiating chaincode on org2/peer2..."
-instantiateChaincode 2
+ echo "Install chaincode on org2/peer2..."
+ installChaincode 2
 
-## Install chaincode on Peer3/Org2
-echo "Installing chaincode on org2/peer3..."
-installChaincode 3
-
+ ## Install chaincode on Peer3/Org2
+ echo "Installing chaincode on org2/peer1..."
+ installChaincode 3
+ 
+ #Instantiate chaincode on Peer2/Org2
+ echo "Instantiating chaincode on org2/peer0..."
+ instantiateChaincode 2
+fi
